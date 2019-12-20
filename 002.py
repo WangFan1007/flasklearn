@@ -1,7 +1,8 @@
 from flask import Flask
-from flask import url_for,escape
+from flask import url_for, escape
 
 app = Flask(__name__)
+
 
 @app.route('/')
 def index():
@@ -12,9 +13,15 @@ def index():
 def login():
     return 'login'
 
+
 @app.route('/user/<username>')
 def profile(username):
     return '{}\'s profile'.format(escape(username))
+
+
+@app.route('/hello/world')
+def helloWorld():
+    return 'helloWow'
 
 
 # app.run(port=5000,debug=True)
@@ -23,3 +30,4 @@ with app.test_request_context():
     print(url_for('login'))
     print(url_for('login', next='/'))
     print(url_for('profile', username='John Doe'))
+    print(url_for('helloWorld'))
