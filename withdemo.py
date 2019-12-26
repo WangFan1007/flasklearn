@@ -17,3 +17,6 @@ class WithDemo:
 
 with WithDemo("王凡") as demo:
     demo.doSomeThing()
+
+
+print(__name__)
